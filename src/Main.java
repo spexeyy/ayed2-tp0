@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Carrera sistemas = new Carrera();
 
-        List estudiantes = new ArrayList<Estudiante>();
+        List<Estudiante> estudiantes = new ArrayList<>();
 
         Estudiante ignacio = new Estudiante(
                 "Ignacio",
