@@ -85,6 +85,17 @@ public class Estudiante {
         materias.add(m);
     }
 
+    public void listarMaterias() {
+        if (materias.isEmpty()) {
+            System.out.println("No esta matriculado en ninguna materia");
+            return;
+        }
+
+        for (Materia m : materias) {
+            System.out.println(m.getNombre());
+        }
+    }
+
     public double calcularPromedio() {
         if (materias.isEmpty()) {
             return 0;
