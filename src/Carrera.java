@@ -2,10 +2,20 @@ import java.util.ArrayList;
 
 public class Carrera {
 
+    private String nombre;
     private ArrayList<Estudiante> estudiantes;
 
-    public Carrera(){
+    public Carrera(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacio");
+        }
+
+        this.nombre = nombre;
         this.estudiantes = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void agregarEstudiante(Estudiante e) {
@@ -19,7 +29,7 @@ public class Carrera {
 
     public void listarEstudiantes() {
         for (Estudiante e : estudiantes) {
-            System.out.println("Nombre: " + e.getNombre() + " | " + "Apellido: " + e.getApellido() + " | " + "Carrera: " + e.getCarrera());
+            System.out.println("Nombre: " + e.getNombre() + " | " + "Apellido: " + e.getApellido());
         }
     }
 
@@ -37,7 +47,8 @@ public class Carrera {
 
         for (Estudiante e : estudiantes) {
             if (e.getNombre().contains(texto)) {
-                System.out.println("Nombre: " + e.getNombre() + " | Apellido: " + e.getApellido() + " | Carrera: " + e.getCarrera());
+                System.out.println("Nombre: " + e.getNombre() + " | Apellido: " + e.getApellido() + " | Carrera: "
+                        + e.getCarrera());
                 encontrado = true;
             }
         }
@@ -46,7 +57,5 @@ public class Carrera {
             System.out.println("No se ha encontrado un alumno con ese nombre");
         }
     }
-
-
 
 }
